@@ -28,7 +28,7 @@
 			<input type="email" placeholder="邮箱" id="username" name="username" class="input" />
 			<input type="password" placeholder="密码" id="password" name="password" class="input" />
 			<a href="#" class="link">忘记密码?</a>
-			<button class="btn" type="submit" >登录</button>
+			<button class="btn" type="submit" onclick="loginSub()">登录</button>
 		</form>
 	</div>
 
@@ -46,60 +46,8 @@
 </div>
 
 <script  src="../js/script.js"></script>
-<!--<script src="../js/login.js"></script>-->
-<script type="text/javascript">
-	function loginSub() {
-		$.ajax({
-			type:"POST",
-			dataType:"application/json",
-			url:"/gala/login/login",
-			data:$("#form2").serialize(),
-			success: function (result) {
-				console.log(result);
-				if (result.code == 200){
-					alert("登录页面通通通");
-				}
-			},
-			error:function () {
-				console.log("ajax调用后台登陆接口异常");
-			}
+<!--<script  src="../js/jquery.min.js"></script>-->
+<script src="../js/login.js"></script>
 
-		});
-	}
-</script>
-<script>
-	$(function(){
-		alert("111cccccc");
-		$('#form2').validate({
-			rules: {
-				username: 'required',
-				password: 'required'
-			} ,
-			messages: {
-				username: '请输入用户名',
-				password: '请输入密码'
-			},
-			submitHandler: function(form) {
-				alert("222cccccc");
-				$(form).ajaxSubmit({
-					type: 'post',
-					url: 'login/login',
-					success: function(result){
-						console.log("11cc--"+result);
-						if(result.success){
-							//window.location.href = 'http://localhost:8081';
-							window.location.href = 'http://localhost:8084';
-						}else{
-							layer.alert(result.message);
-						}
-					}
-				});
-
-			}
-		});
-
-	});
-
-</script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 function loginSub() {
-    alert("333")
+    var un = document.getElementById("username").value;
+    var pw = document.getElementById("password").value;
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"/gala/login/login",
-        data:$('#form2').serialize(),
+        data:{"username":un,"password":pw},
         success: function (result) {
             console.log(result);
             if (result.code == 200){
