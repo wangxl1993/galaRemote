@@ -9,7 +9,7 @@ function loginSub() {
         success: function (result) {
             console.log(result);
             if (result.code == 200){
-                alert("登录页面通通通");
+                window.location.href = 'http://localhost:1993/gala/login/build';
             }
         },
         error:function () {

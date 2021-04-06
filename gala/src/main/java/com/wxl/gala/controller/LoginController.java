@@ -63,5 +63,9 @@ public class LoginController extends BaseController {
         return mr;
     }
 
+    @RequestMapping("/build")
+    public String build(HttpServletRequest request, HttpServletResponse response) {
+        return "build";
+    }
 
 }
