@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>信息</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    table,table tr td {
+        border:1px solid #ccc;
+    }
+    table tr td{
+        padding: 5px 10px;
+    }
+</style>
+<body>
+<table >
+
+    <tr th:each="dis,listStat:${list}">
+        <td th:text="${dis.id}">id</td>
+        <td th:text="${dis.message}">信息</td>
+    </tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>CodePen - Slide Sign In/Sign Up form</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container right-panel-active">
+
+	<!-- Sign Up -->
+	<div class="container__form container--signup">
+		<form action="#" class="form" id="form1">
+			<h2 class="form__title">注册</h2>
+			<input type="text" placeholder="用户名" name="username" class="input" />
+			<input type="email" placeholder="邮箱" name="password" class="input" />
+			<input type="password" placeholder="密码" class="input" />
+			<button class="btn">注册</button>
+		</form>
+	</div>
+
+	<!-- Sign In -->
+	<div class="container__form container--signin">
+		<form action="#" class="form" id="form2">
+			<h2 class="form__title">登录</h2>
+			<input type="email" placeholder="邮箱" id="username" name="username" class="input" />
+			<input type="password" placeholder="密码" id="password" name="password" class="input" />
+			<a href="#" class="link">忘记密码?</a>
+			<button class="btn" type="submit" >登录</button>
+		</form>
+	</div>
+
+	<!-- Overlay -->
+	<div class="container__overlay">
+		<div class="overlay">
+			<div class="overlay__panel overlay--left">
+				<button class="btn" id="signIn">登录</button>
+			</div>
+			<div class="overlay__panel overlay--right">
+				<button class="btn" id="signUp">注册</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script  src="../js/script.js"></script>
+<!--<script src="../js/login.js"></script>-->
+<script type="text/javascript">
+	function loginSub() {
+		$.ajax({
+			type:"POST",
+			dataType:"application/json",
+			url:"/gala/login/login",
+			data:$("#form2").serialize(),
+			success: function (result) {
+				console.log(result);
+				if (result.code == 200){
+					alert("登录页面通通通");
+				}
+			},
+			error:function () {
+				console.log("ajax调用后台登陆接口异常");
+			}
+
+		});
+	}
+</script>
+<script>
+	$(function(){
+		alert("111cccccc");
+		$('#form2').validate({
+			rules: {
+				username: 'required',
+				password: 'required'
+			} ,
+			messages: {
+				username: '请输入用户名',
+				password: '请输入密码'
+			},
+			submitHandler: function(form) {
+				alert("222cccccc");
+				$(form).ajaxSubmit({
+					type: 'post',
+					url: 'login/login',
+					success: function(result){
+						console.log("11cc--"+result);
+						if(result.success){
+							//window.location.href = 'http://localhost:8081';
+							window.location.href = 'http://localhost:8084';
+						}else{
+							layer.alert(result.message);
+						}
+					}
+				});
+
+			}
+		});
+
+	});
+
+</script>
+</body>
+</html>
