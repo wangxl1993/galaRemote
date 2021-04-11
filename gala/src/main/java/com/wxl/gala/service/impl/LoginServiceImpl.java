@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService {
     public MessageResult login(User user,
                                HttpServletRequest req, HttpServletResponse rsp) {
         MessageResult mr = new MessageResult();
-        if (StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())){
+        if (StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())) {
             mr.setSuccess(false);
             mr.setCode(-104);
             mr.setMessage("数据非法");
@@ -39,9 +39,9 @@ public class LoginServiceImpl implements LoginService {
         QueryWrapper<User> queryWrapper = new QueryWrapper();
         queryWrapper.lambda().
                 eq(User::getEmail, user.getUsername()).eq(User::getPassword, user.getPassword())
-                .or().eq(User::getPhone,user.getUsername()).eq(User::getPassword, user.getPassword());
+                .or().eq(User::getPhone, user.getUsername()).eq(User::getPassword, user.getPassword());
         List<User> users = userMapper.selectList(queryWrapper);
-        logger.info("用户信息:"+users);
+        logger.info("用户信息:" + users);
         String token = "";
         if (users != null && users.size() == 1) {
             token = "gala" + UUID.randomUUID().toString();
@@ -70,6 +70,15 @@ public class LoginServiceImpl implements LoginService {
     public MessageResult register(User user,
                                   HttpServletRequest req, HttpServletResponse rsp) {
         MessageResult mr = new MessageResult();
+        if (user == null || StringUtils.isEmpty(user.getUsername()) ||
+                StringUtils.isEmpty(user.getPassword()) || StringUtils.isEmpty(user.getEmail())
+                || StringUtils.isEmpty(user.getPhone())) {
+            mr.setSuccess(false);
+            mr.setCode(-104);
+            mr.setMessage("数据非法");
+            mr.setData(null);
+            return mr;
+        }
         QueryWrapper<User> queryWrapper = new QueryWrapper();
         queryWrapper.lambda().eq(User::getEmail, user.getEmail()).or().eq(User::getPhone, user.getPhone());
         List<User> users = userMapper.selectList(queryWrapper);
