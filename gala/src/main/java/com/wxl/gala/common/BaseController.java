@@ -3,7 +3,6 @@ package com.wxl.gala.common;
 import com.wxl.gala.entity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +19,9 @@ public class BaseController {
                 if (Constant.Token.equals(coo.getName())){
                     String token = coo.getValue();
                     User user = (User) session.getAttribute(token);
+                    if (user!=null){
+                        session.setMaxInactiveInterval(3*60);
+                    }
                     logger.info("用户登录信息:"+user);
                     return user;
                 }
