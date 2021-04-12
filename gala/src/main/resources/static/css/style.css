@@ -64,25 +64,25 @@ body {
 	transition: all 0.6s ease-in-out;
 }
 
-.container--signin {
+.container--signup {
 	left: 0;
 	width: 50%;
 	z-index: 2;
 }
 
-.container.right-panel-active .container--signin {
+.container.right-panel-active .container--signup {
 	-webkit-transform: translateX(100%);
 	        transform: translateX(100%);
 }
 
-.container--signup {
+.container--signin {
 	left: 0;
 	opacity: 0;
 	width: 50%;
 	z-index: 1;
 }
 
-.container.right-panel-active .container--signup {
+.container.right-panel-active .container--signin {
 	-webkit-animation: show 0.6s;
 	        animation: show 0.6s;
 	opacity: 1;
