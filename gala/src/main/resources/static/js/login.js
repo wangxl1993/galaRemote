@@ -34,8 +34,8 @@ function registerSub() {
         success: function (result) {
             console.log(result);
             if (result.code == 200){
-                // window.location.href = 'http://localhost:1993/gala/login/log';
                 layer.msg(result.message);
+                // window.location.href = 'http://localhost:1993/login/log';
             }else {
                 layer.msg(result.message);
             }
