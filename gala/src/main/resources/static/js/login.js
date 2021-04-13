@@ -9,7 +9,7 @@ function loginSub() {
         success: function (result) {
             console.log(result);
             if (result.code == 200){
-                window.location.href = 'http://localhost:1993/login/index';
+                window.location.href = myserver.api+'/login/index';
             }else {
                 layer.msg(result.message);
             }
@@ -35,7 +35,6 @@ function registerSub() {
             console.log(result);
             if (result.code == 200){
                 layer.msg(result.message);
-                // window.location.href = 'http://localhost:1993/login/log';
             }else {
                 layer.msg(result.message);
             }
