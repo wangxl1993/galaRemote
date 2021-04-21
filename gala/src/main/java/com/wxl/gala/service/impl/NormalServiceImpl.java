@@ -29,6 +29,7 @@ public class NormalServiceImpl implements NormalService {
     @Override
     public List<Display> selectAll() {
         QueryWrapper<Display> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().orderByDesc(Display::getCreateTime);
         List<Display> list = displayMapper.selectList(queryWrapper);
         return list;
     }

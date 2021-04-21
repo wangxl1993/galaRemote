@@ -21,6 +21,7 @@
     <tr th:each="dis,listStat:${list}">
         <td th:text="${dis.id}">id</td>
         <td th:text="${dis.message}">信息</td>
+        <td th:text="${dis.createTime}">时间</td>
     </tr>
 
 </table>

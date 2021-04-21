@@ -1,6 +1,6 @@
 myserver = {
-    api: 'http://localhost:1993',
-    // api: 'http://www.gala.zone',
+    // api: 'http://localhost:1993',
+    api: 'http://www.gala.zone',
     resources: {
       agentDownload: 'https://download.aiops.com',
       api: 'http://api.aiops.com',
