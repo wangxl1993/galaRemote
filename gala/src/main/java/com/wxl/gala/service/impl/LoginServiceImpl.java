@@ -53,7 +53,8 @@ public class LoginServiceImpl implements LoginService {
             User sessionUser = users.get(0);
             sessionUser.setPassword("");
             session.setAttribute(token, sessionUser);
-            session.setMaxInactiveInterval(2 * 60);  //10分钟
+            //10分钟
+            session.setMaxInactiveInterval(2 * 60);
             Cookie cookie = new Cookie("galaToken", token);
             rsp.addCookie(cookie);
         } else {

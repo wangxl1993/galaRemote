@@ -7,6 +7,7 @@ import com.wxl.gala.service.NormalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -19,7 +20,8 @@ public class NormalServiceImpl implements NormalService {
         if (message != null){
             Display display = new Display();
             display.setMessage(message);
-            i = displayMapper.insertSelective(display);
+            display.setCreateTime(new Date());
+            i = displayMapper.insert(display);
         }
         return i;
     }
