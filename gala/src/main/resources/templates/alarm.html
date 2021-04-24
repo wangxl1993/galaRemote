@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>webhook数据</title>
+    <link rel="stylesheet" type="text/css" href="/static/js/jquery-easyui-1.5/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/js/jquery-easyui-1.5/themes/icon.css">
+    <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/static/js/moment-with-locales.js"></script>
+</head>
+<body>
+<table class="easyui-datagrid" title="webhook回调数据展示" fitColumns="true"
+       data-options="collapsible:true" th:nowrap="true" pagination="true" showFooter="true"
+       url="/normal/display" method="get"  singleSelect="true" fit="true" >
+    <thead>
+    <tr style="height:60px">
+        <th data-options="field:'id',width:20">ID</th>
+        <th data-options="field:'message',width:400">数据</th>
+        <th data-options="field:'createTime',width:50,align:'right'">时间</th>
+    </tr>
+    </thead>
+</table>
+
+</body>
+</html>

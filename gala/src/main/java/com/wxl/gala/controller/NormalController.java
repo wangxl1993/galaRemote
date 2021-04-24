@@ -1,6 +1,7 @@
 package com.wxl.gala.controller;
 
 import com.wxl.gala.common.BaseController;
+import com.wxl.gala.common.Pager;
 import com.wxl.gala.entity.Display;
 import com.wxl.gala.service.NormalService;
 import org.apache.commons.logging.Log;
@@ -65,17 +66,25 @@ public class NormalController extends BaseController {
     }
 
 
-    @RequestMapping(value = "/dis",method = RequestMethod.GET)
-    public ModelAndView display(HttpServletRequest request) {
-        List<Display> list = normalService.selectAll();
-        logger.info("全部信息:"+list);
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("list",list);
-        mv.addObject("disp",list.get(0));
-        mv.setViewName("display.html");
-        return mv;
-    }
+//    @RequestMapping(value = "/dis",method = RequestMethod.GET)
+//    public ModelAndView dis(HttpServletRequest request,Pager pager) {
+//        List<Display> list = normalService.selectAll(pager);
+//        logger.info("全部信息:"+list);
+//        ModelAndView mv = new ModelAndView();
+//        mv.addObject("list",list);
+//        mv.addObject("disp",list.get(0));
+//        mv.setViewName("alarm.html");
+//        return mv;
+//    }
 
+    @RequestMapping(value = "/display",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> display(HttpServletRequest request, Pager pager) {
+
+        Map<String, Object> map = normalService.selectAll(pager);
+
+        return map;
+    }
 
     protected Map<String, Object> getParameterMap(HttpServletRequest request) {
         Map<String, Object> requestMap = new HashMap<>();

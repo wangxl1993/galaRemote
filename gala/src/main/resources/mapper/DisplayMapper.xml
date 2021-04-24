@@ -7,6 +7,12 @@
     <result column="createTime" jdbcType="LONGVARCHAR" property="create_time" />
   </resultMap>
 
+  <select id="slectByPager" resultType="com.wxl.gala.entity.Display">
+    SELECT *
+    FROM display
+    order by create_time desc
+    LIMIT #{offset}, #{rows}
+  </select>
 
 
 </mapper>
