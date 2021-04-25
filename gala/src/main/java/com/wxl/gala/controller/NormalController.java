@@ -24,22 +24,6 @@ public class NormalController extends BaseController {
     @Autowired
     private NormalService normalService;
 
-    @RequestMapping(value = "/test/db", method = RequestMethod.GET)
-    @ResponseBody
-    public String showMessage(@RequestParam String name) {
-        logger.info("-----ss------=======-------ss---");
-        try {
-            int i = normalService.insertMessage(name);
-            if (i > 0){
-                logger.info("插入数据成功");
-            }else {
-                logger.info("插入数据失败");
-            }
-        }catch (Exception e){
-            logger.error(e.getMessage());
-        }
-        return name;
-    }
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public Map showGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -65,17 +49,6 @@ public class NormalController extends BaseController {
         return body;
     }
 
-
-//    @RequestMapping(value = "/dis",method = RequestMethod.GET)
-//    public ModelAndView dis(HttpServletRequest request,Pager pager) {
-//        List<Display> list = normalService.selectAll(pager);
-//        logger.info("全部信息:"+list);
-//        ModelAndView mv = new ModelAndView();
-//        mv.addObject("list",list);
-//        mv.addObject("disp",list.get(0));
-//        mv.setViewName("alarm.html");
-//        return mv;
-//    }
 
     @RequestMapping(value = "/display",method = RequestMethod.GET)
     @ResponseBody

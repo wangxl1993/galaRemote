@@ -24,20 +24,6 @@ public class LoginController extends BaseController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping("/log")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
-        logger.info("用户进入登录页面");
-        return "login";
-    }
-    @RequestMapping("/index")
-    public String build(HttpServletRequest request, HttpServletResponse response) {
-        return "index";
-    }
-    @RequestMapping("/html/{hm}")
-    public String build(@PathVariable String hm, HttpServletRequest request, HttpServletResponse response) {
-        return hm;
-    }
-
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public MessageResult login( User user,
@@ -75,36 +61,6 @@ public class LoginController extends BaseController {
         MessageResult mr = loginService.register(user,req, rsp);
         return mr;
     }
-
-
-
-
-    @ResponseBody
-    @RequestMapping("/test")
-    public MessageResult test(HttpServletRequest req, HttpServletResponse rsp, HttpSession se) {
-        User user = getLoginfo(req, rsp);
-        MessageResult mr = new MessageResult();
-        HttpSession session = req.getSession();
-        mr.setSuccess(true);
-        mr.setCode(200);
-        mr.setMessage("测试成功");
-        mr.setData("-----ss-----");
-        Cookie[] cookies = req.getCookies();
-        User us = null;
-        if (cookies != null){
-            for (Cookie coo : cookies) {
-                logger.info("cookie:" + coo.getName() + "--" + coo.getValue() + "--" + coo.getMaxAge() + "--" + coo.getComment());
-                if (coo.getName().equals("galaToken")){
-                    us = (User)session.getAttribute(coo.getValue());
-                    if (us != null){
-                        logger.info("session信息:"+us);
-                    }
-                }
-            }
-        }
-        return mr;
-    }
-
 
 
 }
