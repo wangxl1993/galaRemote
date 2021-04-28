@@ -19,7 +19,10 @@ public class HtmlController {
     }
 
 
-
+    @RequestMapping("/html/test")
+    public String myTest( HttpServletRequest request, HttpServletResponse response) {
+        return "test";
+    }
 
 
 

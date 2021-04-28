@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wxl.gala.common.Pager;
 import com.wxl.gala.entity.Display;
 import com.wxl.gala.mapper.DisplayMapper;
-import com.wxl.gala.service.NormalService;
+import com.wxl.gala.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class NormalServiceImpl implements NormalService {
+public class DataServiceImpl implements DataService {
     @Autowired
     private DisplayMapper displayMapper;
     @Override

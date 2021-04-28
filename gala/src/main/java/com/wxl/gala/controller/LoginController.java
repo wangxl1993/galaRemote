@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController extends BaseController {
-    private static Log logger = LogFactory.getLog(NormalController.class);
+    private static Log logger = LogFactory.getLog(DataController.class);
     @Autowired
     private LoginService loginService;
 

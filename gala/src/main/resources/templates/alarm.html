@@ -12,12 +12,12 @@
 <body>
 <table class="easyui-datagrid" title="webhook回调数据展示" fitColumns="true"
        data-options="collapsible:true" th:nowrap="true" pagination="true" showFooter="true"
-       url="/normal/display" method="get"   fit="true" >
+       url="/data/display" method="get"   fit="true" >
     <thead>
     <tr style="height:60px">
         <th data-options="field:'id',width:20">ID</th>
         <th data-options="field:'message',width:400">数据</th>
-        <th data-options="field:'createTime',width:50,align:'right'">时间</th>
+        <th data-options="field:'createTime',width:90,align:'right'">时间</th>
     </tr>
     </thead>
 </table>
