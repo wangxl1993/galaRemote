@@ -10,14 +10,14 @@
     <script type="text/javascript" src="/static/js/moment-with-locales.js"></script>
 </head>
 <body>
-<table class="easyui-datagrid" title="webhook回调数据展示" fitColumns="true"
+<table class="easyui-datagrid" title="webhook回调数据展示" fitColumns="true" rownumbers="true"
        data-options="collapsible:true" th:nowrap="true" pagination="true" showFooter="true"
        url="/data/display" method="get"   fit="true" >
     <thead>
     <tr style="height:60px">
-        <th data-options="field:'id',width:20">ID</th>
-        <th data-options="field:'message',width:400">数据</th>
-        <th data-options="field:'createTime',width:90,align:'right'">时间</th>
+<!--        <th data-options="field:'id',width:20">ID</th>-->
+        <th data-options="field:'message',width:400">回调数据</th>
+        <th data-options="field:'formatCreateTime',width:60,align:'right'">时间</th>
     </tr>
     </thead>
 </table>

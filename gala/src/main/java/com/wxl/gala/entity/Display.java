@@ -16,6 +16,8 @@ public class Display {
 
     private String message;
 
+    private String formatCreateTime;
+
     public Integer getId() {
         return id;
     }

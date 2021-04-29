@@ -11,7 +11,6 @@
     <script type="text/javascript" src="/static/js/moment-with-locales.js" ></script>
 </head>
 <body>
-<h3>dkjsfosiodjfosdif</h3>
 <table id="table"></table>
 <script th:inline="none">
     console.log("--223355---");
@@ -19,6 +18,7 @@
         $('#table').datagrid({
             url:'/data/display',
             method:'get',
+            title:'回调数据',
             rownumbers: true,
             pagination: true,
             toolbar: '#toolbar',
