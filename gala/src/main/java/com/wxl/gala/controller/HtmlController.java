@@ -24,6 +24,11 @@ public class HtmlController {
         return "test";
     }
 
+    @RequestMapping("/html/show/{html}")
+    public String html( HttpServletRequest request,
+                        HttpServletResponse response,@PathVariable String html) {
+        return html;
+    }
 
 
 
