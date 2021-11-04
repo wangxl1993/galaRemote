@@ -56,6 +56,8 @@ public class LoginServiceImpl implements LoginService {
             //10分钟
             session.setMaxInactiveInterval(2 * 60);
             Cookie cookie = new Cookie("galaToken", token);
+            cookie.setMaxAge(60*20);
+            cookie.setPath("/");
             rsp.addCookie(cookie);
         } else {
             mr.setSuccess(false);

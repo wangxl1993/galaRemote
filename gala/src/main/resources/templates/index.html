@@ -630,7 +630,7 @@
             return;
         }
         console.log("token:" + token);
-        $.get('checklogin/' + token, function (result) {
+        $.get('/login/checklogin/' + token, function (result) {
             console.log(result);
             if (result.success) {
                 var user = result.data;
