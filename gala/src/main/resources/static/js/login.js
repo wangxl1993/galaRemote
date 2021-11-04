@@ -9,7 +9,7 @@ function loginSub() {
         success: function (result) {
             console.log(result);
             if (result.code == 200){
-                window.location.href = myserver.api+'/login/index';
+                window.location.href = myserver.api+'/html/show/index';
             }else {
                 layer.msg(result.message);
             }

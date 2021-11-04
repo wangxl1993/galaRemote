@@ -37,7 +37,15 @@ public class DataController extends BaseController {
 
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     @ResponseBody
-    public String showInfo(@RequestBody String body) {
+    public String showInfo(@RequestBody String body,HttpServletRequest req) {
+        String data = "";
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        if (parameterMap != null){
+            data += parameterMap.keySet();
+            data += parameterMap.values();
+        }
+        logger.info(req.getParameter("namemy")+"---post:"+data);
+        logger.info("---postBody:"+data);
         int i = dataService.insertMessage(body);
         if (i > 0){
             logger.info("插入数据成功");
