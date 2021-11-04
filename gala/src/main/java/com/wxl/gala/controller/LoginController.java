@@ -23,6 +23,7 @@ public class LoginController extends BaseController {
     @Autowired
     private LoginService loginService;
 
+    //cs
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public MessageResult login( User user,
